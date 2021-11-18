@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta nama="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>My Table</title>
 </head>
@@ -29,14 +29,14 @@
         font-family: 'Open Sans', sans-serif;
         width: 750px;
         border-collapse: collapse;
-        border: 3px solid #44475C;
+        border: 3px solid #666;
         margin: 10px 10px 0 10px;
     }
 
     table th {
         text-transform: uppercase;
         text-align: left;
-        background: #44475C;
+        background: #666;
         color: #FFF;
         cursor: pointer;
         padding: 8px;
@@ -44,13 +44,14 @@
     }
 
     table th:hover {
-        background: #717699;
+        background: #666;
+        color: black;
     }
 
     table td {
         text-align: left;
         padding: 8px;
-        border-right: 2px solid #7D82A8;
+        border-right: 2px solid #666;
     }
 
     table td:last-child {
@@ -58,21 +59,21 @@
     }
 
     table tbody tr:nth-child(2n) td {
-        background: #D4D8F9;
+        background: #BBB;
     }
 
     table {
         font-family: 'Open Sans', sans-serif;
         width: 750px;
         border-collapse: collapse;
-        border: 3px solid #44475C;
+        border: 3px solid #666;
         margin: 10px 10px 0 10px;
     }
 
     table th {
         text-transform: uppercase;
         text-align: left;
-        background: #44475C;
+        background: #666;
         color: #FFF;
         cursor: pointer;
         padding: 8px;
@@ -80,13 +81,13 @@
     }
 
     table th:hover {
-        background: #717699;
+        background: #DDD;
     }
 
     table td {
         text-align: left;
         padding: 8px;
-        border-right: 2px solid #7D82A8;
+        border-right: 2px solid #666;
     }
 
     table td:last-child {
@@ -94,7 +95,7 @@
     }
 
     table tbody tr:nth-child(2n) td {
-        background: #D4D8F9;
+        background: #BBB;
     }
 
     .arrow_down {
@@ -123,12 +124,17 @@
             ascending: false,
             sortColumn: '',
             rows: [
-                { id: 1, name: "Chandler Bing", phone: '305-917-1301', profession: 'IT Manager' },
-                { id: 2, name: "Ross Geller", phone: '210-684-8953', profession: 'Paleontologist' },
-                { id: 3, name: "Rachel Green", phone: '765-338-0312', profession: 'Waitress'},
-                { id: 4, name: "Monica Geller", phone: '714-541-3336', profession: 'Head Chef' },
-                { id: 5, name: "Joey Tribbiani", phone: '972-297-6037', profession: 'Actor' },
-                { id: 6, name: "Phoebe Buffay", phone: '760-318-8376', profession: 'Masseuse' }
+                { id: 1, nama: "Hamidan Amarullah", email: 'hamidan.amarullah@gmail.com', profesi: 'Frontend Developer' },
+                { id: 2, nama: "Tubagus Ibrahim", email: 'tubagus.ibrahim@gmail.com', profesi: 'Data Scientist' },
+                { id: 3, nama: "Julian Farhan", email: 'juliahf@gmail.com', profesi: 'Security Engineering'},
+                { id: 4, nama: "Andi Fatur", email: 'andifr@gmail.com', profesi: 'Copy Writer' },
+                { id: 5, nama: "ivan Mulya", email: 'ivan.mulya@gmail.com', profesi: 'Web Developer' },
+                { id: 6, nama: "Hawari Milatullah", email: 'hawarimilatullah@gmail.com', profesi: 'Marketing' },
+                { id: 7, nama: "Raihan Fijar", email: 'raihanfa@gmail.com', profesi: 'Social Media Specialist' },
+                { id: 8, nama: "Dicky Saefulloh", email: 'dickyss@gmail.com', profesi: 'Mobile App' },
+                { id: 9, nama: "Nisa Aulia", email: 'nisa.aulia@gmail.com', profesi: 'Android Developer' },
+                { id: 10, nama: "Dany Prasetya", email: 'danyprasetya@gmail.com', profesi: 'Testing' },
+                { id: 11, nama: "Anita Dara", email: 'anita.darapuspita@gmail.com', profesi: 'Backend Developer' },
             ]
         },
         methods: {
