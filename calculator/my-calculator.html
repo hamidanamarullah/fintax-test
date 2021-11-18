@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>My Calculator</title>
+</head>
+<body>
+    <div id="kalkulator">
+        <div id="hasil">
+            <span>{{ valueDisplayed }}</span>
+        </div>
+        <div id="pad">
+            <div class="button" id="clear" @click="clear">C</div>
+            <div class="button" @click="handleOp('/')">/</div>
+            <div class="button" @click="handleDigit(7)">7</div>
+            <div class="button" @click="handleDigit(8)">8</div>
+            <div class="button" @click="handleDigit(9)">9</div>
+            <div class="button" @click="handleOp('x')">x</div>
+            <div class="button" @click="handleDigit(4)">4</div>
+            <div class="button" @click="handleDigit(5)">5</div>
+            <div class="button" @click="handleDigit(6)">6</div>
+            <div class="button" @click="handleOp('-')">-</div>
+            <div class="button" @click="handleDigit(1)">1</div>
+            <div class="button" @click="handleDigit(2)">2</div>
+            <div class="button" @click="handleDigit(3)">3</div>
+            <div class="button" @click="handleOp('+')">+</div>
+            <div id="zero" class="button" @click="handleDigit(0)">0</div>
+            <div id="equal" class="button" @click="handleOp('=')">=</div>
+        </div>
+    </div>
+</body>
+
+<style>
+    html {
+        /* background: #CCC; */
+        font-family: sans-serif; 
+    }
+  
+    body {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        height: 100vh;
+    } 
+
+    #kalkulator {
+        background: #DDD;
+        border: 2px solid #222;
+        border-radius: 4px;
+        max-width: 350px;
+    }
+  
+    #hasil {
+        font-size: 42px;
+        width: 100%;
+        height: 70px;
+        box-sizing: border-box;
+        display: grid;
+        padding: 10px;
+        justify-items: end;
+        align-items: center;
+        border-bottom: 2px solid #222;
+    }
+
+    #pad {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(60px, 1fr));
+        grid-gap: 10px;
+        padding: 15px;
+    }
+  
+    .button {
+        cursor: pointer;
+        font-size: 20px;
+        display: grid;
+        padding: 15px 10px;
+        justify-items: center;
+        align-items: center;
+        color: #FAFAFA;
+        border: 1px solid #222;
+        border-radius: 4px;
+        background: #666;
+    }
+
+    #clear {
+        background: sienna;
+        grid-column: 1/4;
+    }
+    
+    #zero {
+        grid-column: 1/4;
+    }
+    
+    #equal {
+        background: sienna;
+    }
+</style>
+
+<script>
+    var app = new Vue({
+    el: '#kalkulator',
+    data () {
+        return {
+            currentValue: 0,
+            savedValue: false,
+            currentOp: false
+        }
+    },
+    methods: {
+        clear () {
+            this.currentValue = 0
+            this.savedValue = false
+            this.currentOp = false
+        },
+
+        handleDigit (digit) {
+            if (this.currentOp === '=') {
+                this.savedValue = false
+            }
+            this.currentValue = this.currentValue * 10 + digit
+        },
+
+        handleOp (op){
+            if (this.currentOp) {
+                this.process()
+            } 
+            else {
+                this.savedValue = this.currentValue
+            }
+            this.currentValue = 0
+            this.currentOp = op      
+        },
+
+        process() {
+            if (this.currentOp === '+') {
+                this.savedValue += this.currentValue
+            }
+            else if (this.currentOp === '-') {
+                this.savedValue -= this.currentValue
+            }
+            else if (this.currentOp === 'x') {
+                this.savedValue *= this.currentValue
+            }
+            else if (this.currentOp === '/') {
+                this.savedValue /= this.currentValue
+            }
+            else if (this.currentOp === '=' && this.currentValue) {
+                this.savedValue = this.currentValue
+            }
+                this.currentValue = 0
+                this.currentOp = false
+            }
+        },
+        computed: {
+            valueDisplayed () {
+                return this.savedValue ? this.currentValue ?  this.currentValue : this.savedValue : this.currentValue
+            }
+        }
+    })
+</script>
+
+</html>
